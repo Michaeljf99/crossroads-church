@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crossroads Community Church — Gray, Maine</title>
+  <meta name="description" content="An Assemblies of God church in Gray, Maine meeting Sundays at 10am. Scripture-centered, community-rooted.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest: #1E3A20;
+      --pine:   #2D5230;
+      --cream:  #F6F1E9;
+      --parch:  #EDE4D3;
+      --char:   #1A1A1A;
+      --mid:    #5A5754;
+      --gold:   #B87D3A;
+      --border: #D6CDB8;
+      --white:  #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--char);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      background: var(--forest);
+      z-index: 100;
+      padding: 18px 0;
+    }
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo {
+      font-family: 'Lora', serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: #fff;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a.nav-cta {
+      background: var(--gold);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 3px;
+      text-transform: none;
+      letter-spacing: 0;
+      font-size: 15px;
+    }
+    .nav-links a.nav-cta:hover { background: #a06d2e; }
+
+    /* ── HERO ── */
+    #hero {
+      background: var(--forest);
+      color: #fff;
+      padding: 100px 0 90px;
+    }
+    .hero-tag {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 22px;
+    }
+    #hero h1 {
+      font-family: 'Lora', serif;
+      font-size: 62px;
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+    #hero p {
+      font-size: 19px;
+      color: rgba(255,255,255,0.72);
+      max-width: 520px;
+      line-height: 1.65;
+      margin-bottom: 40px;
+    }
+    .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    .btn-gold {
+      display: inline-block;
+      background: var(--gold);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 14px 28px;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .btn-gold:hover { background: #a06d2e; }
+    .btn-ghost {
+      display: inline-block;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.82);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 13px 28px;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.75); color: #fff; }
+
+    /* ── INFO STRIP ── */
+    #info-strip {
+      background: var(--parch);
+      border-bottom: 1px solid var(--border);
+      padding: 30px 0;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .info-item {
+      padding: 0 32px;
+      border-right: 1px solid var(--border);
+    }
+    .info-item:first-child { padding-left: 0; }
+    .info-item:last-child { border-right: none; }
+    .info-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 5px;
+    }
+    .info-value {
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--char);
+    }
+    .info-value a { color: inherit; text-decoration: none; }
+    .info-value a:hover { text-decoration: underline; }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 88px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    section h2 {
+      font-family: 'Lora', serif;
+      font-size: 36px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--char);
+      margin-bottom: 48px;
+    }
+
+    /* ── WHAT TO EXPECT ── */
+    .expect-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .expect-card {
+      background: var(--cream);
+      padding: 36px 40px;
+    }
+    .expect-card h3 {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--forest);
+      margin-bottom: 12px;
+    }
+    .expect-card p {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.72;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--parch); }
+    .about-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .about-text p {
+      font-size: 17px;
+      color: var(--mid);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-values { display: flex; flex-direction: column; gap: 30px; }
+    .value-item h3 {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .value-item p {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.68;
+    }
+
+    /* ── MINISTRIES ── */
+    .ministries-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .ministry-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 30px 26px;
+      border-radius: 4px;
+    }
+    .ministry-tag {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .ministry-card h3 {
+      font-family: 'Lora', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--char);
+      margin-bottom: 12px;
+    }
+    .ministry-card p {
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.72;
+    }
+
+    /* ── TEAM ── */
+    #team { background: var(--parch); }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .team-card { display: flex; flex-direction: column; gap: 14px; }
+    .team-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      background: var(--border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--mid);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+    }
+    .team-card h3 {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--char);
+      margin-bottom: 3px;
+    }
+    .team-role {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .team-card p {
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.68;
+    }
+
+    /* ── SERMONS ── */
+    #sermons { background: var(--forest); color: #fff; }
+    #sermons h2 { color: #fff; }
+    #sermons p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.7);
+      max-width: 560px;
+      line-height: 1.72;
+      margin-bottom: 36px;
+    }
+    .sermon-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 14px 28px;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .sermon-btn:hover { background: #a06d2e; }
+
+    /* ── CONTACT ── */
+    .contact-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-info p {
+      font-size: 17px;
+      color: var(--mid);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .contact-detail {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .contact-detail a {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--forest);
+      text-decoration: none;
+    }
+    .contact-detail a:hover { text-decoration: underline; }
+    .contact-detail span { font-size: 16px; color: var(--char); }
+    .social-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .social-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--forest);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 7px 14px;
+      border-radius: 3px;
+      transition: background 0.15s;
+    }
+    .social-links a:hover { background: var(--parch); }
+    .map-embed {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      height: 100%;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+    }
+    .map-embed iframe {
+      width: 100%;
+      flex: 1;
+      border: none;
+      display: block;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--char);
+      padding: 28px 0;
+    }
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer span {
+      font-size: 14px;
+      color: rgba(255,255,255,0.45);
+    }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .container  { padding: 0 24px; }
+      .nav-inner  { padding: 0 24px; }
+      .footer-inner { padding: 0 24px; }
+
+      .nav-links { gap: 16px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+
+      #hero { padding: 64px 0 56px; }
+      #hero h1 { font-size: 38px; }
+      #hero p  { font-size: 17px; }
+      .btn-ghost { display: none; }
+
+      .info-grid { grid-template-columns: 1fr; gap: 18px; }
+      .info-item { border-right: none; border-bottom: 1px solid var(--border); padding: 0 0 18px; }
+      .info-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+      section { padding: 56px 0; }
+      section h2 { font-size: 28px; margin-bottom: 32px; }
+
+      .expect-grid { grid-template-columns: 1fr; }
+      .expect-card { padding: 28px 24px; }
+
+      .about-body { grid-template-columns: 1fr; gap: 40px; }
+
+      .ministries-grid { grid-template-columns: 1fr; }
+
+      .team-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+
+      .contact-body { grid-template-columns: 1fr; gap: 40px; }
+      .map-embed { min-height: 220px; }
+
+      .footer-inner { flex-direction: column; gap: 10px; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .team-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Crossroads Community Church</a>
+      <div class="nav-links">
+        <a href="#expect">Visit</a>
+        <a href="#ministries">Ministries</a>
+        <a href="#team">Team</a>
+        <a href="#sermons">Sermons</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div id="hero">
+    <div class="container">
+      <span class="hero-tag">Sunday mornings &middot; 10am &middot; Gray, Maine</span>
+      <h1>A church rooted in<br>Scripture and community.</h1>
+      <p>Crossroads Community Church is an Assemblies of God congregation in Gray, Maine. We study the Bible, worship together, and serve our neighbors.</p>
+      <div class="hero-actions">
+        <a href="#expect" class="btn-gold">Plan a visit &rarr;</a>
+        <a href="#sermons" class="btn-ghost">Watch a sermon</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- INFO STRIP -->
+  <div id="info-strip">
+    <div class="container">
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Service</span>
+          <span class="info-value">Sundays at 10:00am</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Location</span>
+          <span class="info-value">
+            <a href="https://maps.google.com/?q=14+Lewiston+Rd+Gray+ME+04039" target="_blank" rel="noopener">
+              14 Lewiston Rd, Gray ME
+            </a>
+          </span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Phone</span>
+          <span class="info-value"><a href="tel:2076571500">207-657-1500</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT TO EXPECT -->
+  <section id="expect">
+    <div class="container">
+      <h2>What to expect</h2>
+      <div class="expect-grid">
+        <div class="expect-card">
+          <h3>The service</h3>
+          <p>Sunday morning service starts at 10am and runs about 90 minutes. You'll hear contemporary worship music led by Cristie Barone, followed by a message from Pastor Paul grounded in Scripture. Come as you are — there's no dress code and no pressure.</p>
+        </div>
+        <div class="expect-card">
+          <h3>Kids &amp; families</h3>
+          <p>Families are welcome in the main service. If you have questions about children's programming before your first visit, give us a call at 207-657-1500 and we'll get you sorted out ahead of time.</p>
+        </div>
+        <div class="expect-card">
+          <h3>Parking &amp; location</h3>
+          <p>We meet at 14 Lewiston Road in Gray — off Route 202, easy to find from New Gloucester, Windham, or Poland. Parking is available on-site. The building is accessible.</p>
+        </div>
+        <div class="expect-card">
+          <h3>First time?</h3>
+          <p>No pressure to join anything or talk to anyone. Show up, grab a seat, and get a feel for the place. If you want to connect, Pastor Paul will be around after the service — he's easy to spot and glad to meet you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-body">
+        <div class="about-text">
+          <h2>About us</h2>
+          <p>Crossroads Community Church is an Assemblies of God congregation that has been meeting in Gray, Maine since 2014. We believe the Bible is God's Word — accurate, authoritative, and relevant to everyday life — and that the church's calling is to make disciples, not just fill seats.</p>
+          <p>Our vision: equip people to live and speak God's hope and healing in our community. That happens Sunday mornings, Wednesday afternoons, and through outreach ministries that serve neighbors in practical, tangible ways throughout the week.</p>
+          <p>Pastor Paul Barone has led the church since 2019. He's a New Yorker who came to Maine in 2014 and put down roots. Cristie Barone leads music ministry on Sunday mornings.</p>
+        </div>
+        <div class="about-values">
+          <div class="value-item">
+            <h3>Intentional in the Word</h3>
+            <p>The Bible is our authority. Sunday services, Wednesday studies, and everything we teach is built on Scripture — not trends, not opinion.</p>
+          </div>
+          <div class="value-item">
+            <h3>Intentional in Worship</h3>
+            <p>Worship is an offering, not a performance. We come to give something, not to be entertained.</p>
+          </div>
+          <div class="value-item">
+            <h3>Intentional in Community</h3>
+            <p>Faith without action is hollow. We serve our neighbors with food, clothing, and practical support through Bread of Life and Crossroads Connect.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MINISTRIES -->
+  <section id="ministries">
+    <div class="container">
+      <h2>Ministries</h2>
+      <div class="ministries-grid">
+        <div class="ministry-card">
+          <span class="ministry-tag">Community Outreach</span>
+          <h3>Bread of Life</h3>
+          <p>We provide food, clothing, and practical support to neighbors in need. Led by Steve Dunn, Bread of Life is how we put our faith into action in the Gray community — not a program, but a consistent commitment to serving people where they are.</p>
+        </div>
+        <div class="ministry-card">
+          <span class="ministry-tag">Connection</span>
+          <h3>Crossroads Connect</h3>
+          <p>The starting point for anyone who wants to get more involved — whether you're new to the church or have been around for years. A practical way to find your place in the congregation.</p>
+        </div>
+        <div class="ministry-card">
+          <span class="ministry-tag">Wednesdays &middot; 12:30pm</span>
+          <h3>Bible Study</h3>
+          <p>Doreen Dunn facilitates a Wednesday afternoon Bible study at 12:30pm. A smaller group setting for people who want to go deeper into Scripture and conversation outside of Sunday morning.</p>
+        </div>
+        <div class="ministry-card">
+          <span class="ministry-tag">Men's Ministry</span>
+          <h3>Men of Crossroads</h3>
+          <p>Led by Deacon Bryan Lewis — one of the church's longest-standing members — focused on discipleship, accountability, and teaching Scripture among men. Originally from Alabama, Bryan felt called to Maine and has been committed to this community ever since.</p>
+        </div>
+        <div class="ministry-card">
+          <span class="ministry-tag">Sundays &middot; 10am</span>
+          <h3>Music Ministry</h3>
+          <p>Cristie Barone leads worship every Sunday morning. Contemporary music directed toward genuine worship — not a concert, not background music. Something in between that invites the congregation to actually participate.</p>
+        </div>
+        <div class="ministry-card">
+          <span class="ministry-tag">Online</span>
+          <h3>Online Church</h3>
+          <p>Can't make it in person? Services are available through our online church portal and on YouTube. The full service experience, from anywhere in Maine or beyond.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team">
+    <div class="container">
+      <h2>Our team</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-photo">Photo</div>
+          <div>
+            <h3>Paul &amp; Cristie Barone</h3>
+            <span class="team-role">Lead Pastor &amp; Music Director</span>
+            <p>Originally from New York, Pastor Paul and his family came to Maine in 2014. He has served as lead pastor since 2019. Cristie leads the music ministry on Sunday mornings. Contact: <a href="mailto:pastorpaul@crossroadsmaine.org" style="color:var(--forest);">pastorpaul@crossroadsmaine.org</a></p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo">Photo</div>
+          <div>
+            <h3>Steve &amp; Doreen Dunn</h3>
+            <span class="team-role">Elder &amp; Treasurer</span>
+            <p>Steve leads the Bread of Life outreach ministry and serves as Elder. Doreen facilitates the Wednesday afternoon Bible study at 12:30pm. Married since 1983, they've devoted much of their lives to ministry and community service.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo">Photo</div>
+          <div>
+            <h3>Bryan Lewis</h3>
+            <span class="team-role">Deacon &middot; Men's Ministry</span>
+            <p>One of the church's longest-tenured members. Bryan is devoted to discipling men and teaching Scripture across diverse communities. Originally from Mobile, Alabama, he felt called to relocate to Maine and has been here since.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERMONS -->
+  <section id="sermons">
+    <div class="container">
+      <h2>Sermons</h2>
+      <p>Every Sunday message is available online. Catch up on a missed week, share a specific message, or watch a few before your first visit to get a sense of what and how we teach.</p>
+      <a href="https://www.youtube.com/@crossroadsmaineorg" target="_blank" rel="noopener" class="sermon-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+        </svg>
+        Watch on YouTube
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2>Get in touch</h2>
+      <div class="contact-body">
+        <div class="contact-info">
+          <p>Questions about visiting, a specific ministry, or anything else — reach out. Pastor Paul and the team are easy to get a hold of.</p>
+          <div class="contact-detail">
+            <span>14 Lewiston Rd, Gray ME 04039</span>
+            <a href="tel:2076571500">207-657-1500</a>
+            <a href="mailto:pastorpaul@crossroadsmaine.org">pastorpaul@crossroadsmaine.org</a>
+          </div>
+          <div class="social-links">
+            <a href="https://www.facebook.com/crossroadsmaine.org" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.instagram.com/crossroadsmaineorg" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.youtube.com/@crossroadsmaineorg" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://crossroadsmaine.online.church" target="_blank" rel="noopener">Online Church</a>
+          </div>
+        </div>
+        <div class="map-embed">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2894.0!2d-70.3435!3d43.8817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cb29b6c3b6b6b6b%3A0x0!2s14+Lewiston+Rd%2C+Gray%2C+ME+04039!5e0!3m2!1sen!2sus!4v1"
+            width="600"
+            height="300"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="14 Lewiston Rd, Gray ME 04039">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <span>&copy; 2026 Crossroads Community Church &middot; Gray, Maine</span>
+      <div class="footer-links">
+        <a href="https://www.facebook.com/crossroadsmaine.org" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/crossroadsmaineorg" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://crossroadsmaine.online.church" target="_blank" rel="noopener">Online Church</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
