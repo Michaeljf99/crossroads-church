@@ -6,5 +6,8 @@
   },
   "dependencies": {
     "serve": "^14.2.4"
+  },
+  "devDependencies": {
+    "playwright": "^1.61.1"
   }
 }
