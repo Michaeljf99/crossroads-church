@@ -393,6 +393,16 @@
       transition: background 0.15s, transform 0.15s;
     }
     .sermon-btn:hover { background: var(--amber-lt); transform: translateY(-1px); }
+    .sermon-feature {
+      width: 100%; max-width: 980px; margin: 0 auto 16px; border-radius: 10px;
+      overflow: hidden; box-shadow: 0 14px 44px rgba(0,0,0,0.4);
+      border: 1px solid rgba(196,146,42,0.28);
+    }
+    .sermon-feature iframe { width: 100%; aspect-ratio: 16/9; border: none; display: block; }
+    .sermon-note {
+      text-align: center; font-size: 13px; color: rgba(255,255,255,0.55);
+      max-width: 620px; margin: 0 auto 40px; line-height: 1.6;
+    }
 
     /* ── CONTACT ── */
     .contact-body { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
@@ -936,7 +946,7 @@
         <div class="team-grid">
           <div class="team-card">
             <div class="team-photo">
-              <img src="images/pastor-paul.webp" alt="Pastor Paul Barone">
+              <img src="images/barones.webp" alt="Paul and Cristie Barone">
             </div>
             <div class="team-card-body">
               <h3>Paul &amp; Cristie Barone</h3>
@@ -975,37 +985,15 @@
       <div class="container">
         <span class="section-label">Sunday messages</span>
         <h2>Sermons</h2>
-        <p class="sermons-intro">Every Sunday message is online. Watch before your first visit, catch up on a missed week, or share a message with someone who needs it.</p>
-        <div class="sermons-grid">
-          <div class="sermon-embed">
-            <iframe src="https://www.youtube.com/embed/ZRKz5a43Cjg" title="The Second Coming — Are We Ready? | Mark 13:24-37" loading="lazy" allowfullscreen></iframe>
-            <p class="sermon-title">The Second Coming &#8212; Are We Ready? | Mark 13:24-37</p>
-          </div>
-          <div class="sermon-embed">
-            <iframe src="https://www.youtube.com/embed/y9nPNZhu0UE" title="Endurance Through Christ" loading="lazy" allowfullscreen></iframe>
-            <p class="sermon-title">Your Strength Won&#8217;t Sustain You &#8212; But His Will | Endurance Through Christ</p>
-          </div>
-          <div class="sermon-embed">
-            <iframe src="https://www.youtube.com/embed/WIPA89T13e4" title="Rest in the Storm | Matthew 11:28-30" loading="lazy" allowfullscreen></iframe>
-            <p class="sermon-title">Rest in the Storm | Matthew 11:28-30</p>
-          </div>
-          <div class="sermon-embed">
-            <iframe src="https://www.youtube.com/embed/mg1E4pE3hB0" title="You're Not Trapped — You're Being Transformed" loading="lazy" allowfullscreen></iframe>
-            <p class="sermon-title">You&#8217;re Not Trapped &#8212; You&#8217;re Being Transformed</p>
-          </div>
-          <div class="sermon-embed">
-            <iframe src="https://www.youtube.com/embed/0gjU_hPfCro" title="The Spirit in You Is Greater" loading="lazy" allowfullscreen></iframe>
-            <p class="sermon-title">The Spirit in You Is Greater | How to Face Trials Without Fear</p>
-          </div>
-          <div class="sermon-embed">
-            <iframe src="https://www.youtube.com/embed/1KJ93rdLuO8" title="Faith Over Fear — End Times" loading="lazy" allowfullscreen></iframe>
-            <p class="sermon-title">End Times Anxiety? Don&#8217;t Panic &#8212; Faith Over Fear</p>
-          </div>
-          <div class="sermon-embed">
-            <iframe src="https://www.youtube.com/embed/FTFvQEa-VEg" title="God Is Still in Control | Mark 13:1-13" loading="lazy" allowfullscreen></iframe>
-            <p class="sermon-title">God Is Still in Control | Mark 13:1-13</p>
-          </div>
+        <p class="sermons-intro">Every Sunday message is online. The latest message plays first, and new sermons appear here automatically the moment they go up on YouTube.</p>
+        <div class="sermon-feature">
+          <iframe src="https://www.youtube.com/embed/videoseries?list=UUMCGfIbGge5DilOw2zk9f3w&amp;rel=0"
+                  title="Crossroads Community Church sermons"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
         </div>
+        <p class="sermon-note">Use the playlist menu in the top corner of the player to browse every message, or open the full channel below.</p>
         <a href="https://www.youtube.com/@crossroadsmaineorg" target="_blank" rel="noopener" class="sermon-btn">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
           All sermons on YouTube
