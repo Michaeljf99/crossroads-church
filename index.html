@@ -469,31 +469,83 @@
       flex-shrink: 0; transition: background 0.15s;
     }
     .btn-post-update:hover { background: var(--navy-mid); }
-    .updates-feed { display: flex; flex-direction: column; gap: 20px; max-width: 720px; }
-    .post-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); }
-    .post-card-body { padding: 28px 32px; }
-    .post-card-top { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
-    .post-avatar {
-      width: 42px; height: 42px; border-radius: 50%; background: var(--navy); color: #fff;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 14px; font-weight: 600; flex-shrink: 0; letter-spacing: 0.02em;
+    .updates-feed { display: flex; flex-direction: column; gap: 24px; max-width: 880px; }
+    .event-card {
+      display: flex; background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.18s, transform 0.18s;
     }
-    .post-meta { display: flex; flex-direction: column; gap: 3px; }
-    .post-author { font-size: 15px; font-weight: 600; color: var(--char); }
-    .post-date-badge { display: flex; align-items: center; gap: 8px; }
-    .post-date { font-size: 13px; color: var(--mid); }
-    .post-badge {
+    .event-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .event-card-media {
+      position: relative; flex-shrink: 0; width: 280px; min-height: 200px; background: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .event-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; position: absolute; inset: 0; }
+    .event-card-media.no-img { background: linear-gradient(135deg, var(--navy), var(--navy-mid)); }
+    .event-card-media.no-img svg { width: 52px; height: 52px; color: rgba(255,255,255,0.32); }
+    .event-date-chip {
+      position: absolute; top: 14px; left: 14px; z-index: 2; background: var(--white);
+      border-radius: var(--radius); padding: 7px 13px; text-align: center; box-shadow: var(--shadow-md); line-height: 1;
+    }
+    .event-date-chip .m { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); }
+    .event-date-chip .d { display: block; font-size: 22px; font-weight: 800; color: var(--navy); margin-top: 3px; }
+    .event-card-content { flex: 1; padding: 24px 28px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+    .event-countdown {
+      display: inline-flex; align-items: center; gap: 6px; align-self: flex-start;
+      font-size: 12px; font-weight: 600; color: var(--amber); letter-spacing: 0.02em;
+    }
+    .event-top-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .event-badge {
       font-size: 10px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase;
-      padding: 2px 8px; border-radius: 100px;
+      padding: 3px 9px; border-radius: 100px;
       background: var(--parch); color: var(--navy); border: 1px solid var(--border);
     }
-    .post-badge.badge-event { background: #e8f4e8; border-color: #b8d8b8; color: #1a5a1a; }
-    .post-badge.badge-prayer { background: #e8ecf8; border-color: #b8c4e8; color: #1a3373; }
-    .post-content { font-size: 16px; color: var(--char); line-height: 1.78; white-space: pre-wrap; word-break: break-word; }
-    .post-image-wrap { margin-top: 20px; border-top: 1px solid var(--border); }
-    .post-image-wrap img { display: block; width: 100%; max-height: 480px; object-fit: cover; }
+    .event-badge.badge-event { background: #e8f4e8; border-color: #b8d8b8; color: #1a5a1a; }
+    .event-badge.badge-prayer { background: #e8ecf8; border-color: #b8c4e8; color: #1a3373; }
+    .event-title { font-family: 'Lora', serif; font-size: 21px; font-weight: 600; color: var(--char); line-height: 1.3; margin: 0; }
+    .event-meta { display: flex; flex-direction: column; gap: 5px; }
+    .event-meta-item { display: flex; align-items: center; gap: 7px; font-size: 14px; color: var(--mid); }
+    .event-meta-item svg { width: 15px; height: 15px; flex-shrink: 0; color: var(--amber); }
+    .event-desc { font-size: 15px; color: var(--body); line-height: 1.7; white-space: pre-wrap; word-break: break-word; margin: 2px 0 0; }
+    .event-cta {
+      align-self: flex-start; margin-top: 2px; display: inline-flex; align-items: center; gap: 7px;
+      background: var(--amber); color: #fff; font-size: 13px; font-weight: 600;
+      padding: 9px 18px; border-radius: var(--radius-sm); text-decoration: none; transition: background 0.15s;
+    }
+    .event-cta:hover { background: var(--amber-lt); }
+    .event-card-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 14px; flex-wrap: wrap; }
+    .event-author { font-size: 13px; color: var(--mid); }
+    .event-share { display: flex; gap: 6px; }
+    .event-share a {
+      width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      background: var(--cream); border: 1px solid var(--border); color: var(--navy); transition: background 0.15s, color 0.15s;
+    }
+    .event-share a:hover { background: var(--navy); color: #fff; }
+    .event-share svg { width: 15px; height: 15px; }
     .updates-empty, .updates-loading { text-align: center; padding: 80px 0; color: var(--mid); font-size: 16px; }
     .updates-empty svg { display: block; margin: 0 auto 18px; opacity: 0.25; }
+    /* image upload */
+    .file-drop {
+      display: block; border: 1.5px dashed var(--border); border-radius: var(--radius); background: var(--cream);
+      padding: 20px; text-align: center; cursor: pointer; transition: border-color 0.15s, background 0.15s;
+    }
+    .file-drop:hover { border-color: var(--navy); }
+    .file-drop.dragover { border-color: var(--navy); background: #eef1f8; }
+    .file-drop input[type=file] { display: none; }
+    .file-drop-label { font-size: 14px; color: var(--mid); line-height: 1.6; }
+    .file-drop-label strong { color: var(--navy); }
+    .file-preview { margin-top: 12px; position: relative; display: none; }
+    .file-preview img { width: 100%; max-height: 220px; object-fit: cover; border-radius: var(--radius); display: block; }
+    .file-preview-remove {
+      position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.6); color: #fff; border: none;
+      width: 28px; height: 28px; border-radius: 50%; cursor: pointer; font-size: 17px; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .modal-row { display: flex; gap: 12px; }
+    .modal-row .modal-field { flex: 1; }
+    .modal-scroll { max-height: 64vh; overflow-y: auto; margin: 0 -6px; padding: 0 6px; }
+    .modal-field label .opt { font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--mid); }
+    .modal-box-wide { max-width: 560px; }
 
     /* ── MODAL ── */
     .modal-overlay {
@@ -628,6 +680,10 @@
       .footer-bottom { flex-direction: column; gap: 10px; text-align: center; padding: 20px; }
 
       .updates-page-header { flex-direction: column; align-items: flex-start; }
+      .event-card { flex-direction: column; }
+      .event-card-media { width: 100%; height: 190px; min-height: 190px; }
+      .event-card-content { padding: 22px 22px 24px; }
+      .modal-row { flex-direction: column; gap: 0; }
       .modal-box { padding: 28px 22px; }
     }
 
@@ -1106,7 +1162,7 @@
 
   <!-- POST MODAL -->
   <div id="post-modal" class="modal-overlay" style="display:none;" onclick="if(event.target===this)closePostModal()">
-    <div class="modal-box" role="dialog" aria-modal="true">
+    <div class="modal-box modal-box-wide" role="dialog" aria-modal="true">
       <button class="modal-close" onclick="closePostModal()" aria-label="Close">&times;</button>
 
       <div id="modal-auth">
@@ -1124,25 +1180,58 @@
 
       <div id="modal-post" style="display:none;">
         <h3>Post an Update</h3>
-        <div class="modal-field">
-          <label for="post-author">Your Name</label>
-          <input type="text" id="post-author" placeholder="e.g. Pastor Paul">
-        </div>
-        <div class="modal-field">
-          <label for="post-category">Category</label>
-          <select id="post-category">
-            <option value="update">Update</option>
-            <option value="event">Event</option>
-            <option value="prayer">Prayer Request</option>
-          </select>
-        </div>
-        <div class="modal-field">
-          <label for="post-content">Message</label>
-          <textarea id="post-content" placeholder="What's happening at Crossroads?"></textarea>
-        </div>
-        <div class="modal-field">
-          <label for="post-image">Image URL <span style="font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span></label>
-          <input type="url" id="post-image" placeholder="https://...">
+        <div class="modal-scroll">
+          <div class="modal-field">
+            <label for="post-title">Title</label>
+            <input type="text" id="post-title" placeholder="e.g. Baptism Sunday" maxlength="120">
+          </div>
+          <div class="modal-row">
+            <div class="modal-field">
+              <label for="post-category">Category</label>
+              <select id="post-category" onchange="toggleEventFields()">
+                <option value="update">Update</option>
+                <option value="event">Event</option>
+                <option value="prayer">Prayer Request</option>
+              </select>
+            </div>
+            <div class="modal-field">
+              <label for="post-author">Posted By <span class="opt">(optional)</span></label>
+              <input type="text" id="post-author" placeholder="e.g. Pastor Paul">
+            </div>
+          </div>
+          <div class="modal-row" id="event-fields" style="display:none;">
+            <div class="modal-field">
+              <label for="post-date">Date <span class="opt">(optional)</span></label>
+              <input type="date" id="post-date">
+            </div>
+            <div class="modal-field">
+              <label for="post-time">Time <span class="opt">(optional)</span></label>
+              <input type="text" id="post-time" placeholder="6:00 PM">
+            </div>
+          </div>
+          <div class="modal-field" id="location-field" style="display:none;">
+            <label for="post-location">Location <span class="opt">(optional)</span></label>
+            <input type="text" id="post-location" placeholder="14 Lewiston Rd, Gray ME">
+          </div>
+          <div class="modal-field">
+            <label for="post-content">Message</label>
+            <textarea id="post-content" placeholder="What's happening at Crossroads?"></textarea>
+          </div>
+          <div class="modal-field">
+            <label>Image <span class="opt">(optional)</span></label>
+            <label class="file-drop" id="file-drop">
+              <input type="file" id="post-file" accept="image/*" onchange="handleFileSelect(event)">
+              <span class="file-drop-label" id="file-drop-label"><strong>Click to upload</strong> or drag an image here<br><span style="font-size:12px;">JPG, PNG, or WebP up to 5MB</span></span>
+            </label>
+            <div class="file-preview" id="file-preview">
+              <img id="file-preview-img" alt="Selected image preview">
+              <button type="button" class="file-preview-remove" onclick="clearFile()" aria-label="Remove image">&times;</button>
+            </div>
+          </div>
+          <div class="modal-field">
+            <label for="post-link">Link / RSVP URL <span class="opt">(optional)</span></label>
+            <input type="url" id="post-link" placeholder="https://...">
+          </div>
         </div>
         <div id="post-msg" class="modal-msg" style="display:none;" role="alert"></div>
         <div class="modal-actions">
@@ -1242,25 +1331,83 @@
     var _authed = false;
 
     function getDB() {
-      if (!_db && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
-        _db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-      }
+      try {
+        if (!_db && SUPABASE_URL && SUPABASE_URL.indexOf('http') === 0 && window.supabase) {
+          _db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        }
+      } catch (e) { _db = null; }
       return _db;
     }
-    function initials(name) {
-      return name.trim().split(/\s+/).map(function(w) { return w[0]; }).join('').slice(0,2).toUpperCase();
+    function escHtml(str) {
+      return (str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
     function formatDate(iso) {
       return new Date(iso).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
     }
-    function escHtml(str) {
-      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    function eventDateObj(d) { return new Date(d + 'T00:00:00'); }
+    function fullEventDate(d) {
+      return eventDateObj(d).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: '2-digit' });
+    }
+    function countdownLabel(d) {
+      var today = new Date(); today.setHours(0,0,0,0);
+      var diff = Math.round((eventDateObj(d) - today) / 86400000);
+      if (diff > 1)  return 'In ' + diff + ' days';
+      if (diff === 1) return 'Tomorrow';
+      if (diff === 0) return 'Today';
+      return null;
+    }
+    /* icons */
+    function icoCal()  { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>'; }
+    function icoPin()  { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>'; }
+    function icoClock(){ return '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'; }
+    function icoFb()   { return '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.5V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg>'; }
+    function icoX()    { return '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2H21l-6.5 7.5L22 22h-6.8l-4.3-5.6L5.9 22H3l7-8L2 2h6.9l3.9 5.2L18.2 2zm-2.4 18h1.9L8.3 4H6.3l9.5 16z"/></svg>'; }
+    function icoLi()   { return '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.3 18.3v-7H6v7h2.3zM7.1 10.2a1.3 1.3 0 1 0 0-2.6 1.3 1.3 0 0 0 0 2.6zM18 18.3v-3.8c0-2-.4-3.6-2.8-3.6-1.1 0-1.9.6-2.2 1.2v-1H10.8v7h2.3v-3.5c0-.9.2-1.8 1.3-1.8s1.3 1 1.3 1.9v3.4H18z"/></svg>'; }
+    function dateChip(p) {
+      if (!p.event_date) return '';
+      var d = eventDateObj(p.event_date);
+      return '<div class="event-date-chip"><span class="m">' + d.toLocaleDateString('en-US',{month:'short'}) + '</span><span class="d">' + d.getDate() + '</span></div>';
     }
     function renderPost(p) {
-      var badgeClass = p.category === 'event' ? ' badge-event' : p.category === 'prayer' ? ' badge-prayer' : '';
-      var label = p.category.charAt(0).toUpperCase() + p.category.slice(1);
-      var img = p.image_url ? '<div class="post-image-wrap"><img src="' + escHtml(p.image_url) + '" alt="" loading="lazy"></div>' : '';
-      return '<article class="post-card"><div class="post-card-body"><div class="post-card-top"><div class="post-avatar">' + escHtml(initials(p.author)) + '</div><div class="post-meta"><span class="post-author">' + escHtml(p.author) + '</span><div class="post-date-badge"><span class="post-date">' + formatDate(p.created_at) + '</span><span class="post-badge' + badgeClass + '">' + label + '</span></div></div></div><p class="post-content">' + escHtml(p.content) + '</p></div>' + img + '</article>';
+      var cat = p.category || 'update';
+      var badgeClass = cat === 'event' ? ' badge-event' : cat === 'prayer' ? ' badge-prayer' : '';
+      var label = cat.charAt(0).toUpperCase() + cat.slice(1);
+
+      var media = p.image_url
+        ? '<div class="event-card-media">' + dateChip(p) + '<img src="' + escHtml(p.image_url) + '" alt="" loading="lazy"></div>'
+        : '<div class="event-card-media no-img">' + dateChip(p) + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>';
+
+      var cd = '';
+      if (p.event_date) {
+        var c = countdownLabel(p.event_date);
+        if (c) cd = '<span class="event-countdown">' + icoClock() + c + '</span>';
+      }
+
+      var dateLine = p.event_date ? fullEventDate(p.event_date) : formatDate(p.created_at);
+      if (p.event_date && p.event_time) dateLine += ' &middot; ' + escHtml(p.event_time);
+      var meta = '<span class="event-meta-item">' + icoCal() + dateLine + '</span>';
+      if (p.location) meta += '<span class="event-meta-item">' + icoPin() + escHtml(p.location) + '</span>';
+
+      var desc = p.content ? '<p class="event-desc">' + escHtml(p.content) + '</p>' : '';
+      var cta  = p.link_url ? '<a class="event-cta" href="' + escHtml(p.link_url) + '" target="_blank" rel="noopener">' + (cat === 'event' ? 'RSVP / Learn More' : 'Learn More') + ' &rarr;</a>' : '';
+
+      var u = encodeURIComponent(window.location.href);
+      var t = encodeURIComponent(p.title || 'Crossroads Community Church');
+      var share = '<div class="event-share">'
+        + '<a href="https://www.facebook.com/sharer/sharer.php?u=' + u + '" target="_blank" rel="noopener" aria-label="Share on Facebook">' + icoFb() + '</a>'
+        + '<a href="https://twitter.com/intent/tweet?url=' + u + '&text=' + t + '" target="_blank" rel="noopener" aria-label="Share on X">' + icoX() + '</a>'
+        + '<a href="https://www.linkedin.com/sharing/share-offsite/?url=' + u + '" target="_blank" rel="noopener" aria-label="Share on LinkedIn">' + icoLi() + '</a>'
+        + '</div>';
+
+      return '<article class="event-card">' + media
+        + '<div class="event-card-content">'
+        + cd
+        + '<div class="event-top-row"><span class="event-badge' + badgeClass + '">' + label + '</span></div>'
+        + '<h3 class="event-title">' + escHtml(p.title || p.content || 'Update') + '</h3>'
+        + '<div class="event-meta">' + meta + '</div>'
+        + desc + cta
+        + '<div class="event-card-foot"><span class="event-author">Posted by ' + escHtml(p.author || 'Crossroads') + '</span>' + share + '</div>'
+        + '</div></article>';
     }
     function loadPosts() {
       var feed = document.getElementById('updates-feed');
@@ -1269,7 +1416,7 @@
       var db = getDB();
       if (!db) {
         loading.style.display = 'none';
-        empty.innerHTML = '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Supabase not configured yet.';
+        empty.innerHTML = '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>No updates yet &#8212; check back soon.';
         empty.style.display = 'block'; feed.style.display = 'none'; return;
       }
       loading.style.display = 'block'; empty.style.display = 'none'; feed.style.display = 'none';
@@ -1289,6 +1436,7 @@
       if (_authed) {
         document.getElementById('modal-auth').style.display = 'none';
         document.getElementById('modal-post').style.display = 'block';
+        toggleEventFields();
       } else {
         document.getElementById('modal-auth').style.display = 'block';
         document.getElementById('modal-post').style.display = 'none';
@@ -1310,39 +1458,109 @@
         _authed = true;
         document.getElementById('modal-auth').style.display = 'none';
         document.getElementById('modal-post').style.display = 'block';
-        setTimeout(function() { document.getElementById('post-author').focus(); }, 60);
+        toggleEventFields();
+        setTimeout(function() { document.getElementById('post-title').focus(); }, 60);
       } else {
         err.style.display = 'block';
         document.getElementById('modal-pw').select();
       }
     }
+    /* ── IMAGE UPLOAD ── */
+    var _selectedFile = null;
+    function handleFileSelect(e) {
+      var file = e.target.files && e.target.files[0];
+      var msg = document.getElementById('post-msg');
+      if (!file) return;
+      if (file.size > 5 * 1024 * 1024) {
+        msg.className = 'modal-msg error'; msg.textContent = 'Image must be under 5MB.'; msg.style.display = 'block';
+        clearFile(); return;
+      }
+      msg.style.display = 'none';
+      _selectedFile = file;
+      var reader = new FileReader();
+      reader.onload = function(ev) {
+        document.getElementById('file-preview-img').src = ev.target.result;
+        document.getElementById('file-preview').style.display = 'block';
+        document.getElementById('file-drop').style.display = 'none';
+      };
+      reader.readAsDataURL(file);
+    }
+    function clearFile() {
+      _selectedFile = null;
+      document.getElementById('post-file').value = '';
+      document.getElementById('file-preview').style.display = 'none';
+      document.getElementById('file-drop').style.display = 'block';
+    }
+    function toggleEventFields() {
+      var isEvent = document.getElementById('post-category').value === 'event';
+      document.getElementById('event-fields').style.display = isEvent ? 'flex' : 'none';
+      document.getElementById('location-field').style.display = isEvent ? 'block' : 'none';
+    }
+    function resetPostForm() {
+      ['post-title','post-author','post-content','post-date','post-time','post-location','post-link'].forEach(function(id) {
+        document.getElementById(id).value = '';
+      });
+      document.getElementById('post-category').value = 'update';
+      clearFile(); toggleEventFields();
+    }
+    (function() {
+      var drop = document.getElementById('file-drop');
+      if (!drop) return;
+      ['dragenter','dragover'].forEach(function(ev) { drop.addEventListener(ev, function(e) { e.preventDefault(); drop.classList.add('dragover'); }); });
+      ['dragleave','drop'].forEach(function(ev) { drop.addEventListener(ev, function(e) { e.preventDefault(); drop.classList.remove('dragover'); }); });
+      drop.addEventListener('drop', function(e) {
+        var files = e.dataTransfer && e.dataTransfer.files;
+        if (files && files[0]) { document.getElementById('post-file').files = files; handleFileSelect({ target: { files: files } }); }
+      });
+    })();
+
     function submitPost() {
-      var author   = document.getElementById('post-author').value.trim();
+      var title    = document.getElementById('post-title').value.trim();
+      var author   = document.getElementById('post-author').value.trim() || 'Crossroads';
       var content  = document.getElementById('post-content').value.trim();
       var category = document.getElementById('post-category').value;
-      var imageUrl = document.getElementById('post-image').value.trim();
+      var date     = document.getElementById('post-date').value;
+      var time     = document.getElementById('post-time').value.trim();
+      var location = document.getElementById('post-location').value.trim();
+      var link     = document.getElementById('post-link').value.trim();
       var msg      = document.getElementById('post-msg');
       var btn      = document.getElementById('post-submit-btn');
+      function showErr(t) { btn.disabled = false; btn.textContent = 'Post Update'; msg.className = 'modal-msg error'; msg.textContent = t; msg.style.display = 'block'; }
       msg.style.display = 'none';
-      if (!author)  { msg.className = 'modal-msg error'; msg.textContent = 'Please enter your name.';  msg.style.display = 'block'; return; }
-      if (!content) { msg.className = 'modal-msg error'; msg.textContent = 'Please enter a message.'; msg.style.display = 'block'; return; }
+      if (!title)   { showErr('Please enter a title.'); return; }
+      if (!content) { showErr('Please enter a message.'); return; }
       var db = getDB();
-      if (!db) { msg.className = 'modal-msg error'; msg.textContent = 'Supabase not configured yet.'; msg.style.display = 'block'; return; }
+      if (!db) { showErr('Posting is not connected yet. Add your Supabase keys to enable it.'); return; }
       btn.disabled = true; btn.textContent = 'Posting…';
-      var payload = { author: author, category: category, content: content };
-      if (imageUrl) payload.image_url = imageUrl;
-      db.from('posts').insert([payload]).then(function(res) {
-        if (res.error) {
-          btn.disabled = false; btn.textContent = 'Post Update';
-          msg.className = 'modal-msg error'; msg.textContent = 'Failed to post. Please try again.'; msg.style.display = 'block'; return;
-        }
-        msg.className = 'modal-msg success'; msg.textContent = 'Posted!'; msg.style.display = 'block';
-        document.getElementById('post-author').value = '';
-        document.getElementById('post-content').value = '';
-        document.getElementById('post-image').value = '';
-        document.getElementById('post-category').value = 'update';
-        setTimeout(function() { closePostModal(); loadPosts(); }, 1000);
-      });
+
+      function insertPost(imageUrl) {
+        var payload = { title: title, author: author, category: category, content: content };
+        if (date)     payload.event_date = date;
+        if (time)     payload.event_time = time;
+        if (location) payload.location = location;
+        if (link)     payload.link_url = link;
+        if (imageUrl) payload.image_url = imageUrl;
+        db.from('posts').insert([payload]).then(function(res) {
+          if (res.error) { showErr('Could not post: ' + res.error.message); return; }
+          msg.className = 'modal-msg success'; msg.textContent = 'Posted!'; msg.style.display = 'block';
+          resetPostForm();
+          setTimeout(function() { closePostModal(); loadPosts(); }, 900);
+        });
+      }
+
+      if (_selectedFile) {
+        btn.textContent = 'Uploading image…';
+        var ext  = (_selectedFile.name.split('.').pop() || 'jpg').toLowerCase().replace(/[^a-z0-9]/g, '');
+        var path = Date.now() + '-' + Math.random().toString(36).slice(2, 8) + '.' + (ext || 'jpg');
+        db.storage.from('post-images').upload(path, _selectedFile, { cacheControl: '3600', upsert: false }).then(function(up) {
+          if (up.error) { showErr('Image upload failed: ' + up.error.message); return; }
+          var pub = db.storage.from('post-images').getPublicUrl(path);
+          btn.textContent = 'Posting…';
+          insertPost(pub.data.publicUrl);
+        });
+      } else {
+        insertPost(null);
+      }
     }
   </script>
 
